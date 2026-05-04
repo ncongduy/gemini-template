@@ -1,6 +1,6 @@
 # Gemini CLI Template
 
-This is a pre-configured workspace template for the [Gemini CLI](https://github.com/google/gemini-cli). It provides a secure and productive environment for AI-assisted software engineering with built-in safety hooks and specialized agent skills.
+This is a pre-configured workspace template for the [Gemini CLI](https://geminicli.com/). It provides a secure and productive environment for AI-assisted software engineering with built-in safety hooks and specialized agent skills.
 
 ## Features
 
