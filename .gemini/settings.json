@@ -1,0 +1,84 @@
+{
+  "hooks": {
+    "BeforeAgent": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "name": "log-history",
+            "type": "command",
+            "command": "\"$GEMINI_PROJECT_DIR\"/.gemini/hooks/log-history.sh BeforeAgent"
+          }
+        ]
+      }
+    ],
+    "AfterAgent": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "name": "notify-complete",
+            "type": "command",
+            "command": "\"$GEMINI_PROJECT_DIR\"/.gemini/hooks/notify-complete.sh"
+          },
+          {
+            "name": "log-history",
+            "type": "command",
+            "command": "\"$GEMINI_PROJECT_DIR\"/.gemini/hooks/log-history.sh AfterAgent"
+          }
+        ]
+      }
+    ],
+    "BeforeTool": [
+      {
+        "matcher": "read_file|replace|write_file|grep_search|glob",
+        "hooks": [
+          {
+            "name": "block-sensitive",
+            "type": "command",
+            "command": "\"$GEMINI_PROJECT_DIR\"/.gemini/hooks/block-sensitive.sh"
+          }
+        ]
+      },
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "name": "log-history",
+            "type": "command",
+            "command": "\"$GEMINI_PROJECT_DIR\"/.gemini/hooks/log-history.sh BeforeTool"
+          }
+        ]
+      }
+    ],
+    "AfterTool": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "name": "log-history",
+            "type": "command",
+            "command": "\"$GEMINI_PROJECT_DIR\"/.gemini/hooks/log-history.sh AfterTool"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "name": "notify-input",
+            "type": "command",
+            "command": "\"$GEMINI_PROJECT_DIR\"/.gemini/hooks/notify-input.sh"
+          },
+          {
+            "name": "log-history",
+            "type": "command",
+            "command": "\"$GEMINI_PROJECT_DIR\"/.gemini/hooks/log-history.sh Notification"
+          }
+        ]
+      }
+    ]
+  }
+}
